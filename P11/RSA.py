@@ -63,27 +63,27 @@ def codificar(mensaje,tam_bloque):
 def rsa(opcion):
     test=False
 
-    p=int(raw_input("Introduce el número primo p: "))
-    q=int(raw_input("Introduce el número primo q: "))
-    d=int(raw_input("Introduce d: "))
+    p=int(raw_input("\033[36m" +"Introduce el número primo p: "+'\033[0;m'))
+    q=int(raw_input("\033[36m" +"Introduce el número primo q: "+'\033[0;m'))
+    d=int(raw_input("\033[36m" +"Introduce d: "+'\033[0;m'))
 
     n=p*q
     r=(p-1)*(q-1)
     
     while(test==False):
 
-        print "\nComprobamos si p(" + str(p) +") es un número primo"
+        print "\033[35m" +"\nComprobamos si p(" + str(p) +") es un número primo"+'\033[0;m'
         if(test_lehman_peralta(p)!=True):
-            p=int(raw_input("Introduce otro número primo p: "))
+            p=int(raw_input("\033[36m" +"Introduce otro número primo p: "+'\033[0;m'))
 
-        print "Comprobamos si q(" + str(q) +") es un número primo"
+        print "\033[35m" +"Comprobamos si q(" + str(q) +") es un número primo"+'\033[0;m'
 
         if(test_lehman_peralta(q)!=True):
-            q=int(raw_input("Introduce otro número primo q: "))
+            q=int(raw_input("\033[36m" +"Introduce otro número primo q: "+'\033[0;m'))
 
-        print "Comprobamos si d(" + str(d) +") es primo con r("+str(r)+")"
+        print "\033[35m" +"Comprobamos si d(" + str(d) +") es primo con r("+str(r)+")"+'\033[0;m'
         if(comprobacion(r,d)!=True):
-            d=int(raw_input("Introduce otro número d: "))
+            d=int(raw_input("\033[36m" +"Introduce otro número d: "+'\033[0;m'))
 
         else:
             test=True
@@ -91,10 +91,10 @@ def rsa(opcion):
         r=(p-1)*(q-1)
 
     if(opcion=='C'):
-        mensaje_original=raw_input("Introduce el mensaje original: ")
+        mensaje_original=raw_input("\033[36m" +"Introduce el mensaje original: "+'\033[0;m')
 
     else:
-        mensaje_original=raw_input("Introduce el mensaje cifrado: ")
+        mensaje_original=raw_input("\033[36m" +"Introduce el mensaje cifrado: "+'\033[0;m')
 
     tam_bloque=size_bloque(26,n)
     
@@ -104,9 +104,9 @@ def rsa(opcion):
         mensaje_cod= codificar(mensaje_original,tam_bloque+1)
     
 
-    print "e = inverso(" + str(d) + ") mod " + str(r) + "\n"
+    print "\033[35m" +"e = inverso(" + str(d) + ") mod " + str(r) + "\n"+'\033[0;m'
     e = inverso(r,d)
-    print "e = " + str(e) 
+    print "\033[35m" +"e = " + str(e) +'\033[0;m'
 
     mensaje_cifrado=''
     mensaje_codificado=''
@@ -122,12 +122,12 @@ def rsa(opcion):
         mensaje_decodificado=''.join(mensaje_dec)
         
 
-        print "Parámetros: p="+str(p)+", q="+str(q)+", d="+str(d)+", e="+str(e)+", n="+str(n)+", r="+str(r)
-        print "Bloques de tamaño " + str(tam_bloque)
-        print "Mensaje Original:" + mensaje_original
-        print "Mensaje codificado:" + mensaje_codificado
-        print "Mensaje cifrado:" + mensaje_cifrado
-        print "Mensaje Cifrado decodificado:" + mensaje_decodificado
+        print "\033[35m" +"Parámetros: p="+str(p)+", q="+str(q)+", d="+str(d)+", e="+str(e)+", n="+str(n)+", r="+str(r)+'\033[0;m'
+        print "\033[35m" +"Bloques de tamaño " + str(tam_bloque)+'\033[0;m'
+        print "\033[35m" +"Mensaje Original:" + mensaje_original+'\033[0;m'
+        print "\033[35m" +"Mensaje codificado:" + mensaje_codificado+'\033[0;m'
+        print "\033[35m" +"Mensaje cifrado:" + mensaje_cifrado+'\033[0;m'
+        print "\033[35m" +"Mensaje Cifrado decodificado:" + mensaje_decodificado+'\033[0;m'
     else:
        
         for i in mensaje_cod:
@@ -138,24 +138,24 @@ def rsa(opcion):
         mensaje_dec=decodificar(mensaje_cif,tam_bloque)
         mensaje_decodificado=''.join(mensaje_dec)
 
-        print  "Parámetros: p="+str(p)+", q="+str(q)+", d="+str(d)+", e="+str(e)+", n="+str(n)+", r="+str(r)
-        print "Bloques de tamaño " + str(tam_bloque)
-        print "Mensaje Cifrado:" + mensaje_original
-        print "Mensaje Cifrado codificado:" + mensaje_codificado
-        print "Mensaje Original Codificado:" + mensaje_cifrado
-        print "Mensaje Original decodificado:" + mensaje_decodificado
+        print "\033[35m" +"Parámetros: p="+str(p)+", q="+str(q)+", d="+str(d)+", e="+str(e)+", n="+str(n)+", r="+str(r)+'\033[0;m'
+        print "\033[35m" +"Bloques de tamaño " + str(tam_bloque)+'\033[0;m'
+        print "\033[35m" +"Mensaje Cifrado:" + mensaje_original+'\033[0;m'
+        print "\033[35m" +"Mensaje Cifrado codificado:" + mensaje_codificado+'\033[0;m'
+        print "\033[35m" +"Mensaje Original Codificado:" + mensaje_cifrado+'\033[0;m'
+        print "\033[35m" +"Mensaje Original decodificado:" + mensaje_decodificado+'\033[0;m'
         
 def menu(): #Muestra el menú
     salir=False
-    print "Carolina Álvarez Martín - alu0100944723"
-    print "P11:Cifrado RSA"
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+'\033[0;m'
+    print "\033[36m" +"P11:Cifrado RSA"+'\033[0;m'
     while not salir:
-        print "\033[2J\033[1;1f"
-        print "¿Qué quieres hacer?"
-        print "1)Cifrar"
-        print "2)Descifrar"
-        print "3)Salir"
-        opcion=raw_input("Introduce una opción:" )
+        print "\033[36m" +"¿Qué quieres hacer?"+'\033[0;m'
+        print "\033[36m" +"1)Cifrar"+'\033[0;m'
+        print "\033[36m" +"2)Descifrar"+'\033[0;m'
+        print "\033[36m" +"3)Salir"+'\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción:" +'\033[0;m')
         if opcion=="1":
             rsa('C')	
         elif opcion=="2":
@@ -164,4 +164,4 @@ def menu(): #Muestra el menú
             salir=True
             
         else: 
-            print "Introduce un número entre 1 y 3"
+            print "\033[36m" +"Introduce un número entre 1 y 3"+'\033[0;m'

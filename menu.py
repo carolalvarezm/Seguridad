@@ -16,26 +16,26 @@ import  P12.gamal_eliptico as gamal
 
 def menu(): #Muestra el menú
     salir=False
-    print "Carolina Álvarez Martín - alu0100944723"
-    print "P13:Menú con todas las prácticas"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+ '\033[0;m'
+    print "\033[36m" +"P13:Menú con todas las prácticas"+ '\033[0;m'
 
     while not salir:
         print "\033[2J\033[1;1f"
-        print "¿Qué quieres hacer?"
-        print "1)Cifrado Vernam"
-        print "2)Cifrado Vigenere"
-        print "3)Cifrado RC4"
-        print "4)Cifrado A5/1"
-        print "5)Generador E0 de Bluetooth"
-        print "6)Multiplicación en SNOW3G y AES"
-        print "7)Algoritmo Rijndael"
-        print "8)Modo de cifrado en bloque"
-        print "9)Algoritmo Diffie-Helmann"
-        print "10)Algoritmo Fiat-Shamir"
-        print "11)Cifrado RSA"
-        print "12)Cifrado ElGamal Elíptico"
-        print "13)Salir"
-        opcion=raw_input("Introduce una opción:" )
+        print "\033[36m" + "¿Qué quieres hacer?"+ '\033[0;m'
+        print "\033[35m" + "1)Cifrado Vernam"+ '\033[0;m'
+        print "\033[35m" + "2)Cifrado Vigenere"+ '\033[0;m'
+        print "\033[35m" + "3)Cifrado RC4"+ '\033[0;m'
+        print "\033[35m" + "4)Cifrado A5/1"+ '\033[0;m'
+        print "\033[35m" + "5)Generador E0 de Bluetooth"+ '\033[0;m'
+        print "\033[35m" + "6)Multiplicación en SNOW3G y AES"+ '\033[0;m'
+        print "\033[35m" + "7)Algoritmo Rijndael"+ '\033[0;m'
+        print "\033[35m" + "8)Modo de cifrado en bloque"+ '\033[0;m'
+        print "\033[35m" + "9)Algoritmo Diffie-Helmann"+ '\033[0;m'
+        print "\033[35m" + "10)Algoritmo Fiat-Shamir"+ '\033[0;m'
+        print "\033[35m" + "11)Cifrado RSA"+ '\033[0;m'
+        print "\033[35m" + "12)Cifrado ElGamal Elíptico"+ '\033[0;m'
+        print "\033[35m" + "13)Salir"+ '\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción:" + '\033[0;m')
         if opcion=="1":	
             vernam.menu()
         elif opcion=="2":	

@@ -5,7 +5,7 @@ def inicializacion(semilla):
     S=[]
     K=[]
 
-    print "Inicialización"
+    print  "\033[35m" +"Inicialización"+ '\033[0;m'
     
     for i in range(256):#inicialización
         S.insert(i,i)#0-255
@@ -13,9 +13,9 @@ def inicializacion(semilla):
     j=0
     aux=0
 
-    print "S:"+str(S)
+    print "\033[35m" +"S:"+str(S)+ '\033[0;m'
     print "\n"
-    print "K:"+str(K)
+    print "\033[35m" +"K:"+str(K)+ '\033[0;m'
     print "\n"
     
     for i in range(256):
@@ -25,28 +25,28 @@ def inicializacion(semilla):
         S[i]=S[j]
         S[j]=aux
         imprimir=imprimir+" produce j="+str(j)+" y "+"S["+str(i)+"]="+str(S[i])+" S["+str(j)+"]="+str(S[j])#para imprimir
-        print imprimir
+        print "\033[35m" +imprimir+ '\033[0;m'
     print "\n"
-    print "S="+str(S)
+    print "\033[35m" +"S="+str(S)+ '\033[0;m'
     return S
 
 def generacion_secuencia_cifrante(opcion):
-    semilla=raw_input("Introduce la semilla de clave:")
+    semilla=raw_input("\033[36m" +"Introduce la semilla de clave:"+ '\033[0;m')
     semilla = semilla.split(',') #separar por comas los números
     for i in range(len(semilla)): #pasar a enteros
         semilla[i]=int(semilla[i])
     
     if opcion == True: #Cifrado/descifrado
-        mensaje=raw_input("Introduce el texto original:" )
+        mensaje=raw_input("\033[36m" +"Introduce el texto original:"+ '\033[0;m' )
     else:
-        mensaje=raw_input("Introduce el texto cifrado:" )
+        mensaje=raw_input("\033[36m" +"Introduce el texto cifrado:"+ '\033[0;m' )
 
     mensaje = mensaje.split(',') #separar por comas los números
     for i in range(len(mensaje)): #pasar a enteros
         mensaje[i]=int(mensaje[i])
 
-    print "Semilla de clave : "+str(semilla)
-    print "Texto original : "+str(mensaje)   
+    print "\033[35m" +"Semilla de clave : "+str(semilla)+ '\033[0;m'
+    print "\033[35m" +"Texto original : "+str(mensaje)+ '\033[0;m'
     print "\n"
 
     #S=inicializacion(semilla)
@@ -56,52 +56,52 @@ def generacion_secuencia_cifrante(opcion):
     aux=0
 
     print "\n"
-    print "Generación de secuencia cifrante"
+    print "\033[35m" +"Generación de secuencia cifrante"+ '\033[0;m'
     print "\n"
 
     for k in range(len(mensaje)):#Para cada byte de secuencia cifrante
         i=(i+1)%256
-        print "j="+ str(j)+"+S["+str(i)+"] y S["+str(i)+"]="+str(S[i])
+        print "\033[35m" +"j="+ str(j)+"+S["+str(i)+"] y S["+str(i)+"]="+str(S[i])+ '\033[0;m'
         j=(j+S[i])%256
 
         aux=S[i]#Intercambiamos S[i] con S[j]
-        print "Intercambiamos S["+str(i)+"] y S["+str(j)+"]"
-        print S[i]
-        print S[j]
+        print "\033[35m" +"Intercambiamos S["+str(i)+"] y S["+str(j)+"]"+ '\033[0;m'
+        print "\033[35m" +str(S[i])+ '\033[0;m'
+        print "\033[35m" +str(S[j])+ '\033[0;m'
         S[i]=S[j]
         S[j]=aux
         t=(S[i]+S[j])%256 #Sumamos S[i] con S[j] y hacemos el módulo
-        print "S["+str(t)+"]="
-        print S[t]
+        print "\033[35m" +"S["+str(t)+"]="+ '\033[0;m'
+        print "\033[35m" +str(S[t])+ '\033[0;m'
         cifrado=S[t]^mensaje[k] #Sumamos el byte de secuencia cifrante más el byte del mensaje
-        print S
+        print "\033[35m" +str(S)+ '\033[0;m'
         if opcion == True:
-            print "Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(t)+"] = "+str(S[t])+" "+'{0:08b}'.format(S[t])
-            print "Byte "+str(k+1)+" de texto original: Entrada: M["+str(k+1)+"] = "+str(mensaje[k])+" "+'{0:08b}'.format(mensaje[k])
-            print "Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(cifrado)+"] ="+str(cifrado)+" "+'{0:08b}'.format(cifrado)
+            print "\033[35m" +"Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(t)+"] = "+str(S[t])+" "+'{0:08b}'.format(S[t])+ '\033[0;m'
+            print "\033[35m" +"Byte "+str(k+1)+" de texto original: Entrada: M["+str(k+1)+"] = "+str(mensaje[k])+" "+'{0:08b}'.format(mensaje[k])+ '\033[0;m'
+            print "\033[35m" +"Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(cifrado)+"] ="+str(cifrado)+" "+'{0:08b}'.format(cifrado)+ '\033[0;m'
         else: 
-            print "Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(t)+"] = "+str(S[t])+" "+'{0:08b}'.format(S[t])
-            print "Byte "+str(k+1)+" de texto cifrado: Entrada: M["+str(k+1)+"] = "+str(mensaje[k])+" "+'{0:08b}'.format(mensaje[k])
-            print "Byte "+str(k+1)+" de secuencia original: Salida: S["+str(cifrado)+"] ="+str(cifrado)+" "+'{0:08b}'.format(cifrado)
+            print "\033[35m" +"Byte "+str(k+1)+" de secuencia cifrante: Salida: S["+str(t)+"] = "+str(S[t])+" "+'{0:08b}'.format(S[t])+ '\033[0;m'
+            print "\033[35m" +"Byte "+str(k+1)+" de texto cifrado: Entrada: M["+str(k+1)+"] = "+str(mensaje[k])+" "+'{0:08b}'.format(mensaje[k])+ '\033[0;m'
+            print "\033[35m" +"Byte "+str(k+1)+" de secuencia original: Salida: S["+str(cifrado)+"] ="+str(cifrado)+" "+'{0:08b}'.format(cifrado)+ '\033[0;m'
     print "\n"
 
 def menu(): #Muestra el menú
-	salir=False
-	print "Carolina Álvarez Martín - alu0100944723"
-	print "P3:RC4"
-	while not salir:
-        print "\033[2J\033[1;1f"
-		print "¿Qué quieres hacer?"
-		print "1)Cifrar"
-		print "2)Descifrar"
-		print "3)Salir"
-		opcion=raw_input("Introduce una opción:" )
-		if opcion=="1":
-			generacion_secuencia_cifrante(True)	
-		elif opcion=="2":
-			generacion_secuencia_cifrante(False)
-		elif opcion=="3":
-			salir=True
-			
-		else: 
-			print "Introduce un número entre 1 y 3"
+    salir=False
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+ '\033[0;m'
+    print "\033[36m" +"P3:Cifrado RC4"+ '\033[0;m'
+    while not salir:
+        print "\033[36m" +"¿Qué quieres hacer?"+ '\033[0;m'
+        print "\033[36m" +"1)Cifrar"+ '\033[0;m'
+        print "\033[36m" +"2)Descifrar"+ '\033[0;m'
+        print "\033[36m" +"3)Salir"+ '\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción:"+ '\033[0;m')
+        if opcion=="1":
+            generacion_secuencia_cifrante(True)	
+        elif opcion=="2":
+            generacion_secuencia_cifrante(False)
+        elif opcion=="3":
+            salir=True
+            
+        else: 
+            print "\033[36m" +"Introduce un número entre 1 y 3"+ '\033[0;m'

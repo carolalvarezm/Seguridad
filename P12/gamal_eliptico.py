@@ -46,34 +46,34 @@ def calculo(db,p,curva):
 def codificar(mensaje,M,p,puntos):
     mensaje=int(mensaje,2)
     h=p//M #Parte entera de la división, cociente
-    print "h="+ str(h)+"<"+str(p)+"/"+str(M)
+    print "\033[35m" +"h="+ str(h)+"<"+str(p)+"/"+str(M)+'\033[0;m'
     for j in (range(p)):
         x=h*mensaje+j
         for i in puntos:
             if(i[0]==x):
                 y=i[1]
-                print "Mensaje original codificado como punto Qm =("+str(mensaje)+"*"+str(h)+"+"+str(j)+","+str(y)+")="+str((x,y))
+                print "\033[35m" +"Mensaje original codificado como punto Qm =("+str(mensaje)+"*"+str(h)+"+"+str(j)+","+str(y)+")="+str((x,y))+'\033[0;m'
                 return (x,y)
 
 def gamal_eliptico():
-    p=int(raw_input("Introduce el número primo p: "))
-    a=int(raw_input("Introduce a: "))
-    b=int(raw_input("Introduce b: "))
-    P=input("Introduce el punto base P: ")
+    p=int(raw_input("\033[36m" +"Introduce el número primo p: "+'\033[0;m'))
+    a=int(raw_input("\033[36m" +"Introduce a: "+'\033[0;m'))
+    b=int(raw_input("\033[36m" +"Introduce b: "+'\033[0;m'))
+    P=input("\033[36m" +"Introduce el punto base P: "+'\033[0;m')
 
-    db=int(raw_input("Introduce dB: "))
-    aa=int(raw_input("Introduce aA: "))
-    mensaje_original=raw_input("Introduce el mensaje original: ")
-    M=int(raw_input("Introduce M: "))
+    db=int(raw_input("\033[36m" +"Introduce dB: "+'\033[0;m'))
+    aa=int(raw_input("\033[36m" +"Introduce aA: "+'\033[0;m'))
+    mensaje_original=raw_input("\033[36m" +"Introduce el mensaje original: "+'\033[0;m')
+    M=int(raw_input("\033[36m" +"Introduce M: "+'\033[0;m'))
     print "\n"
 
     puntos=calcular_puntos(a,b,p)
     punto=''
-    print "Puntos  de  la  curva: " 
+    print "\033[35m" +"Puntos  de  la  curva: "+'\033[0;m' 
     for i in range(len(puntos)-1):
         punto =  punto + str(puntos[i]) + ", "
     punto = punto + str(puntos[len(puntos)-1])
-    print punto
+    print "\033[35m" +str(punto)+'\033[0;m'
     
     curva=[a,b,p]
     dbP=[0,0]
@@ -81,7 +81,7 @@ def gamal_eliptico():
     aadbP=[0,0]
 
     dbP= calculo(db,P,curva)
-    print "Clave pública de B: punto dBP= " + str(dbP)
+    print "\033[35m" +"Clave pública de B: punto dBP= " + str(dbP)+'\033[0;m'
 
     mensaje_codificado= codificar(mensaje_original,M,p, puntos)
     
@@ -92,25 +92,25 @@ def gamal_eliptico():
     resultado=sumar_puntos(mensaje_codificado,aadbP,curva)
 
     
-    print "aA(dBP)= " + str(aadbP)
-    print "Primer punto del Mensaje cifrado: Qm+aA(dBP)= " + str(resultado)
-    print "Segundo punto del Mensaje cifrado: aAP=" + str(aaP)
+    print "\033[35m" +"aA(dBP)= " + str(aadbP)+'\033[0;m'
+    print "\033[35m" +"Primer punto del Mensaje cifrado: Qm+aA(dBP)= " + str(resultado)+'\033[0;m'
+    print "\033[35m" +"Segundo punto del Mensaje cifrado: aAP=" + str(aaP)+'\033[0;m'
 
 def menu(): #Muestra el menú
     salir=False
-    print "Carolina Álvarez Martín - alu0100944723"
-    print "P12:Criptografía Elíptica"
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+'\033[0;m'
+    print "\033[36m" +"P12:Criptografía Elíptica"+'\033[0;m'
     while not salir:
-        print "\033[2J\033[1;1f"
-        print "¿Qué quieres hacer?"
-        print "1)Cifrar"
-        print "2)Salir"
-        opcion=raw_input("Introduce una opción:" )
+        print "\033[36m" +"¿Qué quieres hacer?"+'\033[0;m'
+        print "\033[36m" +"1)Cifrar"+'\033[0;m'
+        print "\033[36m" +"2)Salir"+'\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción:"+'\033[0;m' )
         if opcion=="1":	
             gamal_eliptico()
         elif opcion=="2":
             salir=True	
         else: 
-            print "Introduce 1 o 2 "
+            print "\033[36m" +"Introduce 1 o 2 "+'\033[0;m'
 
 

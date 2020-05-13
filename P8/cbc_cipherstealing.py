@@ -3,17 +3,18 @@
 from  aes import *
 
 def modo_cbc():
-    #clave=raw_input("Introduce la clave en hexadecimal: ")
-    #iv=raw_input("Introduce el vector de inicialización en hexadecimal: ")
-    #nbloques=raw_input("¿Cuántos bloques de texto original va a introducir?: ")
-    #for i in range(nbloques):
-        #mensaje.insert(i,raw_input("Introduce el bloque de texto original en hexadecimal: "))
+    clave=raw_input("\033[36m" +"Introduce la clave en hexadecimal: "+ '\033[0;m')
+    iv=raw_input("\033[36m" +"Introduce el vector de inicialización en hexadecimal: "+ '\033[0;m')
+    nbloques=int(raw_input("\033[36m" +"¿Cuántos bloques de texto original va a introducir?: "+ '\033[0;m'))
+    mensaje=[]
+    for i in range(nbloques):
+        mensaje.insert(i,raw_input("\033[36m" +"Introduce el bloque de texto original en hexadecimal: "+ '\033[0;m'))
     #Para grabar el vídeo
     resultado=[]
-    nbloques=3
-    iv='00000000000000000000000000000000'
-    clave='000102030405060708090A0B0C0D0E0F'
-    mensaje=['00112233445566778899AABBCCDDEEFF','00000000000000000000000000000000','000000000000000000000000000000']
+    #nbloques=3
+    #iv='00000000000000000000000000000000'
+    #clave='000102030405060708090A0B0C0D0E0F'
+    #mensaje=['00112233445566778899AABBCCDDEEFF','00000000000000000000000000000000','000000000000000000000000000000']
     
 
     xorini='{0:032x}'.format(int(iv,16)^int(mensaje[0],16))
@@ -48,13 +49,13 @@ def modo_cbc():
     resultado_string=imprimir(resultado)     
     mensaje_string=imprimir(mensaje)
 
-    print "Clave:                      " + imprimir([clave])[0]
-    print "Vector de inicialización:   " + imprimir([iv])[0]
+    print "\033[35m" +"Clave:                      " + imprimir([clave])[0]+ '\033[0;m'
+    print "\033[35m" +"Vector de inicialización:   " + imprimir([iv])[0]+ '\033[0;m'
     for i in (range(len(mensaje_string))):
-        print "Bloque de texto original " + str(i+1) + ": " + mensaje_string[i]
+        print "\033[35m" +"Bloque de texto original " + str(i+1) + ": " + mensaje_string[i]+ '\033[0;m'
     print '\n'
     for i in (range(len(resultado_string))):
-        print "Bloque de texto cifrado  " + str(i+1) + ": " + resultado_string[i]
+        print "\033[35m" +"Bloque de texto cifrado  " + str(i+1) + ": " + resultado_string[i]+ '\033[0;m'
 
 def imprimir(resultado):
     string=''
@@ -68,18 +69,17 @@ def imprimir(resultado):
 
 def menu(): #Muestra el menú
     salir=False
-    print "Carolina Álvarez Martín - alu0100944723"
-    print "P8:Modos de cifrado en bloque"
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+ '\033[0;m'
+    print "\033[36m" +"P8:Modos de cifrado en bloque"+ '\033[0;m'
     while not salir:
-        print "\033[2J\033[1;1f"
-        print "¿Qué quieres hacer?"
-        print "1)Cifrar"
-        print "2)Salir"
-        opcion = raw_input("Introduce una opción:" )
-
+        print "\033[36m" +"¿Qué quieres hacer?"+ '\033[0;m'
+        print "\033[36m" +"1)Cifrar"+ '\033[0;m'
+        print "\033[36m" +"2)Salir"+ '\033[0;m'
+        opcion = raw_input("\033[36m" +"Introduce una opción:" + '\033[0;m')
         if (opcion=="1"):
             modo_cbc()
         elif opcion=="2":
             salir=True	
         else:
-            print "Introduce 1 o 2 "
+            print "\033[36m" +"Introduce 1 o 2 "+ '\033[0;m'

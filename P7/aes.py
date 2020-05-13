@@ -118,16 +118,16 @@ def imprimir(estado,clave, iter):
         for j in range(4):
             string=string+estado[j,i]
             clavestr=clavestr+clave[j,i]
-    print "R"+str(iter)+"(Subclave= " + clavestr + ")="+ string
+    print "\033[35m" +"R"+str(iter)+"(Subclave= " + clavestr + ")="+ string+ '\033[0;m'
     return string
 
 def aes():
-    #semilla=raw_input("Introduce la clave en hexadecimal: ")
-    #mensaje=raw_input("Introduce el mensaje original en hexadecimal: ")
-    semilla="000102030405060708090a0b0c0d0e0f"
-    mensaje="00112233445566778899aabbccddeeff"
-    print "Clave: "+semilla
-    print "Bloque de Texto original: " + mensaje
+    semilla=raw_input("\033[36m" +"Introduce la clave en hexadecimal: "+ '\033[0;m')
+    mensaje=raw_input("\033[36m" +"Introduce el mensaje original en hexadecimal: "+ '\033[0;m')
+    #semilla="000102030405060708090a0b0c0d0e0f"
+    #mensaje="00112233445566778899aabbccddeeff"
+    print "\033[35m" +"Clave: "+semilla+ '\033[0;m'
+    print "\033[35m" +"Bloque de Texto original: " + mensaje+ '\033[0;m'
     estado=np.full((4,4),'00')
     clave=np.full((4,4),'00')
     contador=0
@@ -161,7 +161,7 @@ def aes():
     
 
     #Texto cifrado
-    print "Bloque de texto cifrado: " + str(a)
+    print "\033[35m" +"Bloque de texto cifrado: " + str(a)+ '\033[0;m'
 
 
 
@@ -173,18 +173,18 @@ def pasar_hexadecimal(num):
         return str(hex(num))[2:4]
 
 def menu(): #Muestra el menú
-	salir=False
-	print "Carolina Álvarez Martín - alu0100944723"
-	print "P7:Algoritmo Rijndael"
-	while not salir:
-        print "\033[2J\033[1;1f"
-		print "¿Qué quieres hacer?"
-		print "1)Cifrar"
-		print "2)Salir"
-		opcion=raw_input("Introduce una opción:" )
-		if opcion=="1":
-			aes()	
-		elif opcion=="2":
-			salir=True	
-		else: 
-			print "Introduce 1 o 2 "
+    salir=False
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+ '\033[0;m'
+    print "\033[36m" +"P7:Algoritmo Rijndael"+ '\033[0;m'
+    while not salir:
+        print "\033[36m" +"¿Qué quieres hacer?"+ '\033[0;m'
+        print "\033[36m" +"1)Cifrar"+ '\033[0;m'
+        print "\033[36m" +"2)Salir"+ '\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción:"+ '\033[0;m' )
+        if opcion=="1":
+            aes()	
+        elif opcion=="2":
+            salir=True	
+        else: 
+            print "\033[36m" +"Introduce 1 o 2 "+ '\033[0;m'

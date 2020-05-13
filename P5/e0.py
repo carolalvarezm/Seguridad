@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*
 
 def inicializacion(lfsr1,lfsr2,lfsr3,lfsr4):
-    #k1=raw_input("Introduce la semilla del primer registro(25b)")
-    #k2=raw_input("Introduce la semilla del segundo registro(31b)")
-    #k3=raw_input("Introduce la semilla del tercer registro(33b)")
-    #k4=raw_input("Introduce la semilla del cuarto registro(39b)")
+    k1=raw_input("\033[36m" +"Introduce la semilla del primer registro(25b)"+ '\033[0;m')
+    k2=raw_input("\033[36m" +"Introduce la semilla del segundo registro(31b)"+ '\033[0;m')
+    k3=raw_input("\033[36m" +"Introduce la semilla del tercer registro(33b)"+ '\033[0;m')
+    k4=raw_input("\033[36m" +"Introduce la semilla del cuarto registro(39b)"+ '\033[0;m')
     
-    k1="01111111111111111111111111"
-    k2="0111111111111111111111111111111"
-    k3="011111111111111111111111111111111"
-    k4="010101010101010101010101010101010101010"
+    #k1="01111111111111111111111111"
+    #k2="0111111111111111111111111111111"
+    #k3="011111111111111111111111111111111"
+    #k4="010101010101010101010101010101010101010"
 
     for i in range(len(k1)):
         lfsr1.insert(i,int(k1[i]))
@@ -46,8 +46,8 @@ def e0():
     T2=0
     salida=''
 
-    r1=raw_input("Introduce la semilla de R1 ")
-    iteraciones=int(raw_input("Introduce el número de bits de salida "),10)
+    r1=raw_input("\033[36m" +"Introduce la semilla de R1 "+ '\033[0;m')
+    iteraciones=int(raw_input("\033[36m" +"Introduce el número de bits de salida "+ '\033[0;m'),10)
 
     pr1=[7,11,19,24]#Polinomio de realimentación de cada registro
     pr2=[11,15,23,30]
@@ -86,22 +86,22 @@ def e0():
         xor1=int(T2,2)^int(l2,2)
         xor2=xor1^int(T1,2)
         r1='{0:02b}'.format(xor2)
-    print "salida="+salida
+    print "\033[35m" +"salida="+salida+ '\033[0;m'
 
 def menu(): #Muestra el menú
-	salir=False
-	print "Carolina Álvarez Martín - alu0100944723"
-	print "P5:Generador E0 de Bluetooth"
-	while not salir:
-        print "\033[2J\033[1;1f"
-		print "¿Qué quieres hacer?"
-		print "1)Cifrar"
-		print "2)Salir"
-		opcion=raw_input("Introduce una opción:" )
-		if opcion=="1":
-			e0()	
-		elif opcion=="2":
-			salir=True	
-		else: 
-			print "Introduce 1 o 2 "
-		
+    salir=False
+    print "\033[2J\033[1;1f"
+    print "\033[36m" +"Carolina Álvarez Martín - alu0100944723"+ '\033[0;m'
+    print "\033[36m" +"P5:Generador E0 de Bluetooth"+ '\033[0;m'
+    while not salir:
+        print "\033[36m" +"¿Qué quieres hacer?"+ '\033[0;m'
+        print "\033[36m" +"1)Cifrar"+ '\033[0;m'
+        print "\033[36m" +"2)Salir"+ '\033[0;m'
+        opcion=raw_input("\033[36m" +"Introduce una opción: "+ '\033[0;m' )
+        if opcion=="1":
+            e0()	
+        elif opcion=="2":
+            salir=True	
+        else: 
+            print "\033[36m" +"Introduce 1 o 2 "+ '\033[0;m'
+        
