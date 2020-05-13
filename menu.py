@@ -63,6 +63,6 @@ def menu(): #Muestra el menú
         elif opcion=="13":
             salir=True	
         else: 
-            print "Introduce 1 o 2 "
+            print "Introduce un número entre 1 y 13"
 
 menu()

@@ -42,7 +42,7 @@ def menu(): #Muestra el menú
     print "Carolina Álvarez Martín - alu0100944723"
     print "P10:Algoritmo de Fiat-Shamir"
     while not salir:
-
+        print "\033[2J\033[1;1f"
         print "¿Qué quieres hacer?"
         print "1)Cifrar"
         print "2)Salir"
